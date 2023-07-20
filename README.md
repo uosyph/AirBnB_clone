@@ -16,6 +16,8 @@ The console is implemented using the Python library [Cmd](https://docs.python.or
 -   [Usage Examples](#usage-examples)
     -   [Interactive Mode](#interactive-mode)
     -   [Non-Interactive Mode](#non-interactive-mode)
+-   [License](#license)
+-   [Author](#author)
 
 ## Requeriments
 
@@ -172,5 +174,13 @@ AirBnB_clone$ echo "show User 5101c62f-88dc-4765-a072-a58c750f9ca5" | ./console.
 (hbnb) [User] (5101c62f-88dc-4765-a072-a58c750f9ca5) {'id': '5101c62f-88dc-4765-a072-a58c750f9ca5', 'created_at': datetime.datetime(2023, 7, 16, 23, 12, 41, 102504), 'updated_at': datetime.datetime(2023, 7, 16, 23, 12, 41, 103200)}
 AirBnB_clone$
 ```
+
+## License
+
+Distributed under the Apache License Version 2.0. See [LICENSE](LICENSE) for more information.
+
+## Author
+
+[Yousef Saeed](https://github.com/yousafesaeed)
 
 <p align="right"><a href="#readme-top">Back to Top</a></p>
