@@ -78,6 +78,40 @@ class TestBaseModel(unittest.TestCase):
                          f"[{instance.__class__.__name__}]"
                          f" ({instance.id}) {str(instance.__dict__)}")
 
+    def test_to_dict_method(self):
+        """Check the to_dict() method"""
+        instance = BaseModel()
+        model = instance.to_dict()
+        self.assertTrue(isinstance(model["created_at"], str))
+        self.assertTrue(isinstance(model["updated_at"], str))
+        self.assertTrue(isinstance(instance.created_at, datetime))
+        self.assertTrue(isinstance(instance.updated_at, datetime))
+        self.assertEqual(model["created_at"], instance.created_at.isoformat())
+        self.assertEqual(model["updated_at"], instance.updated_at.isoformat())
+
+    def test_model_with_dict(self):
+        """Check initialization of kwargs"""
+        json_instance = BaseModel().to_dict()
+        instance = BaseModel(**json_instance)
+        self.assertEqual(json_instance, instance.to_dict())
+        self.assertTrue(isinstance(instance.id, str))
+        self.assertTrue(isinstance(instance.created_at, datetime))
+        self.assertTrue(isinstance(instance.updated_at, datetime))
+
+    def test_model_with_empty_dict(self):
+        """Test BaseModel with an empty dictionary"""
+        instance = BaseModel(**{})
+        self.assertTrue(isinstance(instance.id, str))
+        self.assertTrue(isinstance(instance.created_at, datetime))
+        self.assertTrue(isinstance(instance.updated_at, datetime))
+
+    def test_model_with_none_dict(self):
+        """Test BaseModel with "None" dictionary"""
+        instance = BaseModel(None)
+        self.assertTrue(isinstance(instance.id, str))
+        self.assertTrue(isinstance(instance.created_at, datetime))
+        self.assertTrue(isinstance(instance.updated_at, datetime))
+
 
 if __name__ == "__main__":
     unittest.main()
