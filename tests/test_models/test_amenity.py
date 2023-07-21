@@ -9,10 +9,26 @@ import pycodestyle
 from models import amenity
 from models.amenity import Amenity
 from models.base_model import BaseModel
+from models import storage
 
 
 class TestAmenityClass(unittest.TestCase):
     """Tests the Amenity class"""
+
+    def setUp(self):
+        """Set up the test environment"""
+        with open("test.json", "w"):
+            storage._FileStorage__file_path = "test.json"
+            storage._FileStorage__objects = {}
+        Amenity.name = ""
+
+    def tearDown(self):
+        """Tear down the test environment"""
+        storage._FileStorage__file_path = "file.json"
+        try:
+            os.remove("test.json")
+        except FileNotFoundError:
+            pass
 
     def test_pycodestyle(self):
         """Check amenity and test_amenity conform to pycodestyle"""

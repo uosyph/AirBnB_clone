@@ -13,6 +13,11 @@ from models.base_model import BaseModel
 class TestCityClass(unittest.TestCase):
     """Tests the City class"""
 
+    def setUp(self):
+        """Set up the test environment"""
+        City.name = ""
+        City.state_id = ""
+
     def test_pycodestyle(self):
         """Check city and test_city conform to pycodestyle"""
         style = pycodestyle.StyleGuide(quiet=False)
