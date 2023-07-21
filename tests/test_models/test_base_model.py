@@ -16,6 +16,20 @@ from models.engine.file_storage import FileStorage
 class TestBaseModel(unittest.TestCase):
     """Tests the BaseModel class"""
 
+    def setUp(self):
+        """Set up the test environment"""
+        with open("test.json", "w"):
+            FileStorage._FileStorage__file_path = "test.json"
+            FileStorage._FileStorage__objects = {}
+
+    def tearDown(self):
+        """Tear down the test environment"""
+        FileStorage._FileStorage__file_path = "file.json"
+        try:
+            os.remove("test.json")
+        except FileNotFoundError:
+            pass
+
     def test_pycodestyle(self):
         """Check base_model and test_base_model conform to pycodestyle"""
         style = pycodestyle.StyleGuide(quiet=False)
