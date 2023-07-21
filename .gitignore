@@ -170,3 +170,6 @@ cython_debug/
 # Application files
 file.json
 test.json
+
+# W3C validator
+web_static/w3c_validator.py
