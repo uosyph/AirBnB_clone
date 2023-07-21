@@ -13,6 +13,13 @@ from models.base_model import BaseModel
 class TestUserClass(unittest.TestCase):
     """Tests the User class"""
 
+    def setUp(self):
+        """Set up the test environment"""
+        User.email = ""
+        User.password = ""
+        User.first_name = ""
+        User.last_name = ""
+
     def test_pycodestyle(self):
         """Check user and test_user conform to pycodestyle"""
         style = pycodestyle.StyleGuide(quiet=False)
