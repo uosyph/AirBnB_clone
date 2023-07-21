@@ -92,6 +92,15 @@ class TestBaseModel(unittest.TestCase):
                          f"[{instance.__class__.__name__}]"
                          f" ({instance.id}) {str(instance.__dict__)}")
 
+    def test_save_method(self):
+        """Check the save() method"""
+        instance = BaseModel()
+        previous = instance.updated_at
+        sleep(.01)
+        instance.save()
+        current = instance.updated_at
+        self.assertGreater(current, previous)
+
     def test_to_dict_method(self):
         """Check the to_dict() method"""
         instance = BaseModel()
