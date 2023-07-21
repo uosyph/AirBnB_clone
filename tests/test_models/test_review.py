@@ -13,6 +13,12 @@ from models.base_model import BaseModel
 class TestReviewClass(unittest.TestCase):
     """Tests the Review class"""
 
+    def setUp(self):
+        """Set up the test environment"""
+        Review.place_id = ""
+        Review.user_id = ""
+        Review.text = ""
+
     def test_pycodestyle(self):
         """Check review and test_review conform to pycodestyle"""
         style = pycodestyle.StyleGuide(quiet=False)

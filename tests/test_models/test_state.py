@@ -13,6 +13,10 @@ from models.base_model import BaseModel
 class TestStateClass(unittest.TestCase):
     """Tests the State class"""
 
+    def setUp(self):
+        """Set up the test environment"""
+        State.name = ""
+
     def test_pycodestyle(self):
         """Check state and test_state conform to pycodestyle"""
         style = pycodestyle.StyleGuide(quiet=False)

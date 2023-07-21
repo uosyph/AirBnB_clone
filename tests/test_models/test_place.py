@@ -13,6 +13,20 @@ from models.base_model import BaseModel
 class TestPlaceClass(unittest.TestCase):
     """Tests the Place class"""
 
+    def setUp(self):
+        """Set up the test environment"""
+        Place.city_id = ""
+        Place.user_id = ""
+        Place.name = ""
+        Place.description = ""
+        Place.number_rooms = 0
+        Place.number_bathrooms = 0
+        Place.max_guest = 0
+        Place.price_by_night = 0
+        Place.latitude = 0.0
+        Place.longitude = 0.0
+        Place.amenity_ids = []
+
     def test_pycodestyle(self):
         """Check place and test_place conform to pycodestyle"""
         style = pycodestyle.StyleGuide(quiet=False)
