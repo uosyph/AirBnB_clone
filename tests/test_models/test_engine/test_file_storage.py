@@ -45,6 +45,30 @@ class TestFileStorage(unittest.TestCase):
         """Check if the all() method returns the correct type"""
         self.assertTrue(isinstance(FileStorage().all(), dict))
 
+    def test_new_method(self):
+        """Check the new() method"""
+        instance = BaseModel()
+        obj = FileStorage()
+        obj.new(instance)
+        self.assertTrue(
+            f"{type(instance).__name__}.{instance.id}" in obj.all())
+
+    def test_save_method(self):
+        """Check the save() method"""
+        obj = FileStorage()
+        obj.new(BaseModel())
+        first_dict = obj.all()
+        obj.save()
+        obj.reload()
+        second_dict = obj.all()
+
+        for key in first_dict:
+            first_key = key
+        for key in second_dict:
+            second_key = key
+        self.assertEqual(first_dict[first_key].to_dict(),
+                         second_dict[second_key].to_dict())
+
     def test_reload_method(self):
         """Check the reload() method"""
         obj = FileStorage()
