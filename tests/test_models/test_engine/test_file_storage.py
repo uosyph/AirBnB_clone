@@ -4,6 +4,7 @@ Unit tests for the FileStorage class
 """
 
 import unittest
+import os
 import pycodestyle
 from models import storage
 from models.engine import file_storage
@@ -43,6 +44,18 @@ class TestFileStorage(unittest.TestCase):
     def test_all_method(self):
         """Check if the all() method returns the correct type"""
         self.assertTrue(isinstance(FileStorage().all(), dict))
+
+    def test_reload_method(self):
+        """Check the reload() method"""
+        obj = FileStorage()
+        obj.new(BaseModel())
+        obj.save()
+
+        first_dict = obj.all()
+        os.remove("test.json")
+        obj.reload()
+        second_dict = obj.all()
+        self.assertTrue(first_dict == second_dict)
 
 
 if __name__ == "__main__":
