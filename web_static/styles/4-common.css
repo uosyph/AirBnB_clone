@@ -9,6 +9,5 @@ body {
 
 .container {
 	max-width: 1000px;
-	margin-block: 30px;
-	margin-inline: auto;
+	margin: 30px auto;
 }
