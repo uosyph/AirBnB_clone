@@ -42,7 +42,7 @@ Start using the console
 Clone the repository:
 
 ```bash
-git clone https://github.com/yousafesaeed/AirBnB_clone
+git clone https://github.com/uosyph/AirBnB_clone
 ```
 
 Move in to the directory:
@@ -181,6 +181,6 @@ Distributed under the Apache License Version 2.0. See [LICENSE](LICENSE) for mor
 
 ## Author
 
-[Yousef Saeed](https://github.com/yousafesaeed)
+[Yousef Saeed](https://github.com/uosyph)
 
 <p align="right"><a href="#readme-top">Back to Top</a></p>
